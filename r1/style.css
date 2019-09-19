@@ -1,6 +1,28 @@
 .img {
   width: 100%;
-  max-width: 250px;
-  margin: auto;
+  margin: 25px auto;
   object-fit: cover;
+  border-radius: 25px 25px 0 0;
+}
+
+p {
+  color: #555;
+  letter-spacing: 1px;
+  line-height: 1.5;
+  max-height: 100px;
+  padding: 25px 0;
+  overflow: auto;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #fff; 
+}
+::-webkit-scrollbar-thumb {
+  background: #777; 
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f008; 
 }

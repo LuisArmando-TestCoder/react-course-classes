@@ -16,31 +16,26 @@ class Cards extends Component {
         }) => {
             this.setState(() => {
                 this.episodes = _embedded.episodes;
-                return { cards: this.episodes
-                    .map(({ name, image, summary }, i) => (
-                        <Card
-                        disappear={this.state.disappear}
-                        title={name}
-                        src={image.medium}
-                        paragraph={summary}
-                        key={i}/>
-                    )) 
-                };
+                return { cards: this.episodesComponents() }
             });
         });
+    }
+
+    episodesComponents() {
+        return this.episodes.map(({ name, image, summary }, i) => (
+            <Card
+            disappear={this.state.disappear}
+            title={name}
+            src={image.medium}
+            paragraph={summary}
+            key={i}/>
+        ));
     }
 
     toggleDisappear() {
         this.setState({
             disappear: !this.state.disappear,
-            cards: this.episodes.map(({ name, image, summary }, i) => (
-                <Card
-                disappear={this.state.disappear}
-                title={name}
-                src={image.medium}
-                paragraph={summary}
-                key={i}/>
-            ))
+            cards: this.episodesComponents()
         });
     }
 

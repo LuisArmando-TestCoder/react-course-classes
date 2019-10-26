@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default ({ submit }) =>
+export default ({ submit, content }) =>
 
 <button onClick={e => {
     e.preventDefault();
     submit(e);
-}} type='submit'>Upload todo</button>
+}} type='submit'>{content}</button>

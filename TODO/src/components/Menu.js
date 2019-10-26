@@ -1,8 +1,9 @@
 import React from 'react';
+import './Menu.css';
 
 export default ({ items }) =>
 
-<nav>
+<nav className='nav'>
     <ul>
         { items.map(({href = '#', content, click}) => 
             <li>

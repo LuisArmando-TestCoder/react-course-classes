@@ -51,32 +51,34 @@ class App extends Component {
   render() {
     return (
       <div className='container'>
-        <h1>My todo list</h1>
-        <Menu items={this.sections}/>
-        { 
-          this.state.doShowModal ? 
-          <Modal message='Task added!' 
-            btn1='Add a task'
-            btn2='Show tasks'
-            no={() => this.setState({ doShowModal: false })}
-            yes={() => this.setState({ doShowModal: false, sectionIndex: 1 })}/> 
-          :
-          null
-        }
+        <aside>
+          <h1>My todo list</h1>
+          <Menu items={this.sections}/>
+          { 
+            this.state.doShowModal ? 
+            <Modal message='Task added!' 
+              btn1='Add a task'
+              btn2='Show tasks'
+              no={() => this.setState({ doShowModal: false })}
+              yes={() => this.setState({ doShowModal: false, sectionIndex: 1 })}/> 
+            :
+            null
+          }
+        </aside>
         {[
-          <form>
+          <form key={0}>
             <h2>Add todo</h2>
             <Input id='t-title' label='Title' otherProps={{ name: 'title', type: 'text', }} />
             <Input id='t-deadlineDate' label='Deadline date' otherProps={{ name: 'deadlineDate', type: 'date', }} />
             <Input id='t-deadlineHour' label='Maximum hour' otherProps={{ name: 'deadlineHour', type: 'time', }} />
             <Input id='t-description' label='Description' otherProps={{ name: 'description', type: 'textarea', }} />
-            <Submit submit={e => {
+            <Submit content='Upload todo' submit={e => {
               forms.getFormValues(e, todo => this.addTodo(todo));
               this.setState({ doShowModal: true });
             }}/>
           </form>
           ,
-          <section>
+          <section key={1}>
             <h2>Todo List ({this.state.todoList.length})</h2>
             {this.state.todoList.reverse().map((todo, i) => {
               const Todo = this.TodoContent(todo, i);
@@ -84,7 +86,7 @@ class App extends Component {
             })}
           </section>
           ,
-          <section>
+          <section key={2}>
             <h2>Pending tasks ({this.state.todoList.filter(({ isFinished }) => !isFinished).length})</h2>
             {this.state.todoList.filter(({ isFinished }) => !isFinished).reverse().map((todo, i) => {
               const Todo = this.TodoContent(todo, i);
@@ -92,7 +94,7 @@ class App extends Component {
             })}
           </section>
           ,
-          <section>
+          <section key={3}>
             <h2>Finished tasks ({this.state.todoList.filter(({ isFinished }) => isFinished).length})</h2>
             {this.state.todoList.filter(({ isFinished }) => isFinished).reverse().map((todo, i) => {
               const Todo = this.TodoContent(todo, i);

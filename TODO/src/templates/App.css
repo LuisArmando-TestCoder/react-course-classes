@@ -1,0 +1,28 @@
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #fff; 
+}
+::-webkit-scrollbar-thumb {
+    background: #777; 
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #f004; 
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+}
+
+form > * {
+    display: block;
+}

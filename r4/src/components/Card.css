@@ -1,0 +1,25 @@
+.card {
+    box-shadow: 0 0 100px -50px #000;
+    padding: 25px;
+}
+
+.card.starred {
+    display: none;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-gap: 25px;
+    padding: 25px;
+}
+
+.row > button {
+    position: fixed;
+    right: 25px;
+    top: 25px;
+}
+
+[data-custom-favorite="true"] {
+    background: #ff0;
+}
